@@ -1,0 +1,106 @@
+@font-face {
+    font-family: chicken;
+    src: url(chicken-punk.regular.ttf);
+}
+
+@font-face {
+    font-family: magic;
+    src: url(divale-magical-demo.regular.otf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    border: 3px solid grey;
+    width: fit-content;
+    background-color: #131722;
+    color: white;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    padding: 10px 20px;
+    gap: 20px;
+    border-radius: 10px 10px;
+    position: relative;
+    top: 200px;
+}
+
+
+#display {
+    border: 2px solid black;
+    font-family: "chicken";
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    border-radius: 10px 10px;
+}
+
+#expression {
+    color: grey;
+    font-size: 1.3rem;
+    position: relative;
+    margin-right: 80%;
+    top: 15px;
+    opacity: 0.7;
+
+}
+
+#result {
+    font-size: 3.5rem;
+    position: relative;
+    bottom: 5px;
+}
+
+#display,
+button {
+    background: linear-gradient(to right, #272940, #373536, #463D38, #4C3D33);
+}
+
+#buttons {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2px 5px;
+    margin: auto 5px;
+    gap: 6px;
+}
+
+button {
+    font-family: "magic";
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 8px;
+    transition: 0.3s ease-in-out;
+    color: white;
+
+}
+
+button:hover {
+    box-shadow: 2px 2px 6px #C5A85B;
+    font-size: 18px;
+}
+
+#zero {
+    grid-column: -5 / -3;
+}
+
+#plus {
+    grid-row: span 2;
+}
+
+#enter {
+    grid-row: span 2;
+}

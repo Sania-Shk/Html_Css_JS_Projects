@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(bg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#heading,
+#count,
+#save_ele {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 55px;
+    color: #a07856;
+    position: relative;
+    top: 43px;
+    text-shadow: 1px 1px 2px #3b3531
+}
+
+button {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #C8C4C1;
+    position: relative;
+    top: 70px;
+    width: 15rem;
+    border-radius: 10px 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+#btn {
+    background-color: rgb(119, 12, 12);
+    text-shadow: 1px 2px 3px #3b3531
+}
+
+#btn_save {
+    background-color: rgb(29, 71, 29);
+    text-shadow: 1px 2px 3px #3b3531
+}
+
+#btn_remove {
+    background-color: rgb(133, 89, 24);
+    text-shadow: 1px 2px 3px #3b3531
+}
+
+#reset {
+    background-color: rgb(110, 95, 95);
+    text-shadow: 1px 2px 3px #3b3531;
+    width: fit-content;
+    font-size: 20px;
+}
+
+#save_ele {
+    font-size: 30px;
+    margin-top: 25px;
+}

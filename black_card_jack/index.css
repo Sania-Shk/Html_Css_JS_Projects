@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: casino_head;
+    src: url(vakanza.regular.ttf);
+}
+
+@font-face {
+    font-family: casino_2;
+    src: url(tropical-magic.regular.otf)
+}
+
+@font-face {
+    font-family: casino_3;
+    src: url(ncl-gasdrifo.demo.otf);
+}
+
+body {
+    background-image: url(bg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(163, 150, 131, 0.4);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 5px;
+    border-radius: 15px 15px;
+    box-shadow: -2px -3px 5px black;
+}
+
+#head {
+    font-size: 75px;
+    font-family: casino_head;
+    margin-top: 5px;
+    color: #E25822;
+    background-image: linear-gradient(45deg, #2C0C12 22%, #AD6C34 33%, #B49873 67%, #C6AE94 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.display {
+    width: 45%;
+    font-family: casino_head;
+    font-weight: 200;
+    font-size: 40px;
+    padding: 5px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 3px 5px black;
+    gap: 8px;
+
+}
+
+#msg {
+    font-family: casino_2;
+    line-height: 0.85;
+    text-align: center;
+
+}
+
+.buttons {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 5px;
+    gap: 5px;
+}
+
+button {
+    font-family: casino_head;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 5px;
+    width: 70%;
+    border-radius: 5px 8px;
+    box-shadow: 2px 2px 5px rgb(51, 45, 45);
+    color: #3A1012;
+    background: linear-gradient(to right, #6A563F, #a39683, #FAF5EF);
+    transition: 0.3s ease-in-out;
+}
+
+#restart {
+    color: #a39683;
+    background: linear-gradient(to right, #3A1012, #7e4d4f, #d4afb1);
+}
+
+#restart:hover {
+
+    text-shadow: 1px 1px #806b4d;
+    font-weight: 500;
+}
+
+button:hover {
+    text-shadow: 1px 1px #a39683;
+    font-size: 16px;
+
+}

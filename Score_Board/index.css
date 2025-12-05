@@ -1,0 +1,168 @@
+@font-face {
+    font-family: score_board;
+    src: url(poorlittlebaby.regular.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    background-image: url(balls.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    top: 25px;
+    gap: 10px;
+}
+
+#head {
+    font-family: 'score_board';
+    font-weight: 400;
+    font-size: 15vh;
+    text-shadow: 5px 3px grey;
+}
+
+#player_data {
+    border: 2px solid;
+    width: 70%;
+    display: flex;
+    padding: 5px 3px;
+    justify-content: space-between;
+
+
+}
+
+.players {
+    border: 2px solid rgb(0, 0, 0);
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 45px;
+    font-weight: 800;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(122, 139, 98, 0.9);
+    width: 45%;
+}
+
+.players p {
+    color: peachpuff;
+    text-shadow: 2px 3px 5px #b84e4e;
+}
+
+#num {
+    border: 2px solid;
+    display: flex;
+    gap: 5px;
+    padding: 2px 2px;
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+}
+
+#num p {
+    border: 3px solid black;
+}
+
+button {
+    width: fit-content;
+    padding: 5px;
+    border: 3px solid peachpuff;
+    box-shadow: 3px 2px 5px rgb(7, 7, 7);
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    font-size: 20px;
+}
+
+#increment {
+    background-color: rgba(138, 125, 125, 0.1);
+    color: #f3d3a6;
+    font-weight: bold;
+}
+
+#increment:hover {
+    color: #c98686;
+    background-color: #f3d3a6;
+}
+
+#decrement:hover {
+    color: #c4a272;
+    background-color: #FFB7B7;
+}
+
+#decrement {
+    background-color: rgba(138, 125, 125, 0.1);
+    color: #FFB7B7;
+    font-weight: bold;
+}
+
+
+
+#winner {
+
+    font-family: "Orbitron", sans-serif;
+    font-weight: bolder;
+    font-size: 8vh;
+    text-shadow: 3px 3px grey;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+}
+
+#win {
+    width: 18%;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: #FFB7B7;
+    color: #9c3a3a;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+}
+
+#win:hover {
+    background-color: rgba(175, 66, 117, 0.5);
+}
+
+#reset {
+    width: 12%;
+    background-color: rgb(153, 31, 31);
+    color: #c4a272;
+    font-weight: 800;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+}
+
+@media screen and (max-width : 600px) {
+    .scoring_btn {
+        padding: 2px 28px;
+    }
+
+    #decrement {
+        position: relative;
+        left: 18px;
+    }
+
+
+    .players p {
+        font-size: 35px;
+    }
+}

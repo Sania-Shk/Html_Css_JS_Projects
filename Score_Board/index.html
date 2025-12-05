@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Score Board</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="head">Simple ScoreBoard</h1>
+      <!-- player data -->
+
+      <div id="player_data">
+        <div class="players">
+          <p id="player1">player1</p>
+
+          <div id="num">
+            <p id="score_1">0</p>
+          </div>
+
+          <div class="scoring_btn">
+            <button id="increment" onclick="increment1_1()">+1</button>
+            <button id="increment" onclick="increment1_2()">+2</button>
+            <button id="increment" onclick="increment1_3()">+3</button>
+            <button id="decrement" onclick="decrement_player1()">
+              decrement
+            </button>
+          </div>
+        </div>
+
+        <div class="players">
+          <p id="player2">player2</p>
+
+          <div id="num">
+            <p id="score_2">0</p>
+          </div>
+
+          <div class="scoring_btn">
+            <button id="increment" onclick="increment_1()">+1</button>
+            <button id="increment" onclick="increment_2()">+2</button>
+            <button id="increment" onclick="increment_3()">+3</button>
+            <button id="decrement" onclick="decrement_player2()">
+              decrement
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2 id="winner_review">Winner :</h2>
+      <button id="win" onclick="winner()">click</button>
+
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
