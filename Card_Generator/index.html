@@ -3,9 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CARD GENERATOR</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h2>CARD GENERATOR</h2>
+    <div class="outer_container">
+      <div class="container">
+        <header id="header">
+          <h3>ROCKET<span style="color: #f5f5f9">PAY</span></h3>
+          <img src="asserts/icon.png" class="icon" />
+        </header>
+
+        <main id="main">
+          <div class="left_side">
+            <form id="form" onsubmit="return false;">
+              <label for="number">Number</label>
+              <input
+                type="text"
+                placeholder="card number"
+                id="number"
+                maxlength="16"
+                inputmode="numeric"
+                autocomplete="cc-number"
+              />
+              <br />
+
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="your name" />
+              <br />
+
+              <div class="card_date">
+                <div id="ex_num">
+                  <label for="expiry" style="margin-bottom: 5px">Expiry</label>
+                  <br />
+                  <input
+                    type="text"
+                    id="expiry"
+                    placeholder="MM/YY"
+                    maxlength="5"
+                    inputmode="numeric"
+                    autocomplete="cc-exp"
+                  />
+                  <br />
+                </div>
+
+                <div id="cvc_num">
+                  <label for="cvc" style="margin-bottom: 5px">CVC</label>
+                  <br />
+                  <input
+                    type="text"
+                    id="cvc"
+                    maxlength="3"
+                    inputmode="numeric"
+                    autocomplete="cc-csc"
+                  />
+                  <br />
+                </div>
+              </div>
+
+              <div id="error"></div>
+
+              <!-- keep same ids but change types to button to avoid form submit -->
+              <div class="form-actions">
+                <input type="button" value="Submit" id="submit_data" />
+                <input type="button" value="Clear" id="clear_data" />
+              </div>
+            </form>
+          </div>
+
+          <div class="right_side">
+            <div class="outer_right">
+              <div class="card_header">
+                <img src="asserts/icon.png" class="card_icon" />
+                <h2>VISA</h2>
+              </div>
+
+              <div class="card_main">
+                <h2 id="card_number">0000 0000 0000 0000</h2>
+
+                <div class="user_name">
+                  <h4>name</h4>
+                  <p id="card_name">name</p>
+                </div>
+
+                <div class="card_detail">
+                  <div class="expiry_card">
+                    <h4>expiry</h4>
+                    <p id="card_expiry_number">00/00</p>
+                  </div>
+
+                  <div class="cvc_card">
+                    <h4>cvc</h4>
+                    <p id="card_cvc_number">000</p>
+                  </div>
+
+                  <img src="asserts/chip.jpeg" class="pay_chip" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
   </body>
 </html>

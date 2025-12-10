@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: elegant;
+    src: url(asserts/presqueelegante.regular.otf);
+}
+
+@font-face {
+    font-family: elegant_2;
+    src: url(asserts/noble-elegant.regular.ttf);
+}
+
+@font-face {
+    font-family: visa;
+    src: url(asserts/rovin.regular.ttf);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #121214;
+    font-family: "Poppins", sans-serif;
+}
+
+.outer_container {
+    position: absolute;
+    top: 30%;
+    width: 800px;
+    background-color: rgba(53, 50, 50, 0.3);
+    box-shadow: 0 0 10px rgba(82, 82, 82, 0.3);
+    padding: 30px;
+}
+
+.container {
+    border: 1px solid rgb(53, 49, 49);
+    border-radius: 8px;
+    background-color: #201f23;
+    box-shadow: 0 0 15px rgba(63, 62, 62, 0.3);
+    margin: auto;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+#header {
+    color: #78777b;
+    padding: 5px 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#header h3 {
+    font-family: elegant;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 300px auto;
+    color: white;
+    padding: 5px;
+}
+
+.left_side {
+    padding: 5px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    line-height: 16px;
+}
+
+label {
+    font-family: elegant;
+    font-size: 19px;
+    font-weight: 550;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 15rem;
+    padding: 11px;
+    border: 1px solid rgb(59, 57, 57);
+    border-radius: 4px;
+    background: #121115;
+    color: #938888;
+    font-weight: 550;
+}
+
+.card_date {
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card_date input {
+    width: 7rem;
+}
+
+.right_side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer_right {
+    border: 1px solid rgb(116, 114, 114);
+    box-shadow: 0px 0px 2px grey;
+    width: 90%;
+    position: relative;
+    top: 15px;
+    border-radius: 12px;
+    margin-bottom: 60px;
+    background: linear-gradient(58deg, rgba(73, 73, 84, 1) 15%, rgba(8, 0, 0, 1) 100%);
+}
+
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 19px;
+}
+
+.card_header h2 {
+    font-family: visa;
+    font-weight: 450;
+    font-size: 1.3rem;
+    color: #d5d4d7;
+}
+
+.card_main {
+    padding: 13px 19px;
+    line-height: 1.45;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+#card_number {
+    font-family: system-ui;
+    font-weight: 650;
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+.card_detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 5px;
+}
+
+.user_name,
+.card_detail {
+    line-height: 1.25;
+}
+
+.user_name h4,
+.expiry_card h4,
+.cvc_card h4 {
+    font-family: elegant;
+    font-weight: 550;
+    font-size: 15px;
+}
+
+.user_name p,
+.expiry_card p,
+.cvc_card p {
+    font-family: elegant;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.pay_chip {
+    object-fit: cover;
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.form-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+#error {
+    border: 1px solid maroon;
+    font-size: 1.0rem;
+    padding: 4.5px;
+    font-weight: 320;
+    margin-top: 5px;
+    width: 12rem;
+    border-radius: 5px;
+    color: silver;
+    text-align: center;
+    position: relative;
+    left: 30px;
+    box-shadow: 0px 0px 15px maroon;
+    visibility: hidden;
+}
