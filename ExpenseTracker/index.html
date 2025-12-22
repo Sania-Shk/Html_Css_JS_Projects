@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="inedx.css" />
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 id="title">Expense Tracker</h2>
+
+      <!-- -------------------HEADER_SECTOR------------------- -->
+      <header class="header">
+        <div class="balance">
+          <h3>Your Balance :</h3>
+          <h2>$000</h2>
+        </div>
+
+        <div id="box">
+          <!-- income and loss  -->
+          <div id="profit_chart">
+            <div id="profit">Total income</div>
+            <div id="profit_display">0000</div>
+          </div>
+
+          <!-- separater -->
+          <div id="line">
+            <div class="sub_line">|</div>
+            <div class="sub_line">|</div>
+          </div>
+          <div id="loss_chart">
+            <div id="loss">Total Expense</div>
+            <div id="profit_display">0000</div>
+          </div>
+        </div>
+      </header>
+      <div class="sub_container">
+        <!-- -------------------MAIN_SECTOR------------------- -->
+        <main class="main">
+          <h3>Expenses</h3>
+        </main>
+
+        <!-- -------------------FOOTER_SECTOR------------------- -->
+        <footer class="footer">
+          <h2>Add new</h2>
+          <form id="form">
+            <span>Entry Type : </span>
+            <span>
+              <select id="sources">
+                <option id="exbtn">Expense</option>
+                <option id="inbtn">Income</option>
+              </select>
+            </span>
+
+            <div class="data">
+              Name: <input type="text" placeholder="name" id="name" />
+            </div>
+            <div class="data">
+              Amount: <input type="text" placeholder="amount" id="amount" />
+            </div>
+
+            <div class="add">
+              <select id="sources">
+                <option id="exbtn">Add Expense</option>
+                <option id="inbtn">Add Income</option>
+              </select>
+              <button id="test">testing button</button>
+            </div>
+          </form>
+        </footer>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
