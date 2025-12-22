@@ -11,7 +11,7 @@ let uAmount;
 let balance = document.querySelector("#money");
 let userBalance = 0;
 let options = document.querySelector("#sources");
-let submitButton;
+let submitButton = document.querySelector("#subtn");
 
 function getData() {
   data_object.userName = nameInput.value;
@@ -20,8 +20,15 @@ function getData() {
 }
 
 options.addEventListener("input", getData);
-nameInput.addEventListener("input", getData);
-amountInput.addEventListener("input", getData);
+nameInput.addEventListener("input", () => {
+  getData();
+  scanner();
+});
+
+amountInput.addEventListener("input", () => {
+  getData();
+  scanner();
+});
 
 // ----------------------INPUT VALIDATION----------------------
 
@@ -47,11 +54,11 @@ function amountValidation() {
 
 function inputValidation() {
   if (!nameValidation()) {
-    issubmit = false;
+    submitButton.disabled = true;
     return false;
   }
   if (!amountValidation()) {
-    issubmit = false;
+    submitButton.disabled = true;
     return false;
   }
 
@@ -63,22 +70,61 @@ function errorAlert(e) {
   alert(`Error Raised! \n  ${e}`);
 }
 
-// ----------------------FOR TESTING----------------------
-// testButton = document.querySelector("#test");
-// testButton.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   if (inputValidation()) {
-//     testButton.style.color = "green"; // Success par green
-//     userBalance += uAmount;
-//     balance.textContent = `${"₹"}` + userBalance.toLocaleString("en-IN");
-//   } else {
-//     testButton.style.color = "red"; // Fail par red
-//   }
-// });
+// ----------------------AMOUNT TYPE----------------------
 
-submitButton = document
-  .querySelector("#subtn")
-  .addEventListener("click", (event) => {
-    event.preventDefault();
-    issubmit = true;
-  });
+function amountType() {
+  if (options.value.toLowerCase() === "expense") {
+    submitButton.style.color = "green";
+    submitButton.textContent = "Add Expense";
+  } else {
+    submitButton.style.color = "blue";
+    submitButton.textContent = "Add Income";
+  }
+}
+
+options.addEventListener("change", () => {
+  amountType();
+  scanner();
+});
+
+// ----------------------SUBMISSION----------------------
+
+submitButton.addEventListener("click", function submission(event) {
+  event.preventDefault();
+
+  if (inputValidation) {
+    getData();
+
+    if (options.value === "expense") {
+      userBalance -= uAmount;
+      console.log(userBalance);
+      console.log(typeof userBalance);
+    }
+
+    if (options.value === "income") {
+      userBalance += uAmount;
+      console.log(userBalance);
+      console.log(typeof userBalance);
+    }
+  }
+
+  balance.textContent = `${"₹"}` + userBalance.toLocaleString("en-IN");
+  console.log(balance);
+  console.log(typeof balance);
+});
+
+function scanner() {
+  const isNameFilled = nameInput.value.trim().length >= 0;
+  const isAmountFilled = amountInput.value.trim().length >= 0;
+  const isOptionSelected = options.value !== " " && options.value !== " ";
+
+  if (isNameFilled && isAmountFilled && isOptionSelected) {
+    submitButton.disabled = false;
+    submitButton.style.opacity = "1";
+    submitButton.style.cursor = "pointer";
+  } else {
+    submitButton.disabled = true;
+    submitButton.style.opacity = "0.5";
+    submitButton.style.cursor = "not-allowed";
+  }
+}
