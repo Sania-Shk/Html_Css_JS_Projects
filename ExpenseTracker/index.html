@@ -15,7 +15,7 @@
       <header class="header">
         <div class="balance">
           <h3>Your Balance :</h3>
-          <h2>$000</h2>
+          <h2 id="money">₹000</h2>
         </div>
 
         <div id="box">
@@ -49,6 +49,7 @@
             <span>Entry Type : </span>
             <span>
               <select id="sources">
+                <option value="display" selected disabled hidden>Source</option>
                 <option id="exbtn">Expense</option>
                 <option id="inbtn">Income</option>
               </select>
@@ -62,11 +63,7 @@
             </div>
 
             <div class="add">
-              <select id="sources">
-                <option id="exbtn">Add Expense</option>
-                <option id="inbtn">Add Income</option>
-              </select>
-              <button id="test">testing button</button>
+              <button id="subtn"></button>
             </div>
           </form>
         </footer>

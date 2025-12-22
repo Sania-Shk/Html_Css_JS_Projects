@@ -2,16 +2,24 @@
 let data_object = {
   userName: " ",
   userAmount: null,
+  type: " ",
 };
 
 const nameInput = document.querySelector("#name");
 const amountInput = document.querySelector("#amount");
+let uAmount;
+let balance = document.querySelector("#money");
+let userBalance = 0;
+let options = document.querySelector("#sources");
+let submitButton;
 
 function getData() {
   data_object.userName = nameInput.value;
   data_object.userAmount = amountInput.value;
+  data_object.type = options.value;
 }
 
+options.addEventListener("input", getData);
 nameInput.addEventListener("input", getData);
 amountInput.addEventListener("input", getData);
 
@@ -28,23 +36,27 @@ function nameValidation() {
 
 function amountValidation() {
   let rawValue = amountInput.value.trim();
-  let uAmount = Number(rawValue);
+  uAmount = Number(rawValue);
   if (!rawValue) return errorAlert("Amount cannot be empty");
   if (/[a-zA-z]/.test(uAmount))
     return errorAlert("Amount must contain digits only");
-  if (uAmount.length <= 0) return errorAlert("Amount must be greater than 0");
+  if (uAmount <= 0) return errorAlert("Amount must be greater than 0");
 
   return true;
 }
 
 function inputValidation() {
-  if (!nameValidation()) return false;
-  if (!amountValidation()) return false;
+  if (!nameValidation()) {
+    issubmit = false;
+    return false;
+  }
+  if (!amountValidation()) {
+    issubmit = false;
+    return false;
+  }
 
   return true;
 }
-
-// ----------------------AMOUNT TYPE----------------------
 
 // ----------------------ERROR ALERT----------------------
 function errorAlert(e) {
@@ -52,14 +64,21 @@ function errorAlert(e) {
 }
 
 // ----------------------FOR TESTING----------------------
-let testButton = document.querySelector("#test");
-testButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (inputValidation()) {
-    testButton.style.color = "green"; // Success par green
-    alert("✅ Everything is correct!");
-    console.log("Final Data:", data_object);
-  } else {
-    testButton.style.color = "red"; // Fail par red
-  }
-});
+// testButton = document.querySelector("#test");
+// testButton.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   if (inputValidation()) {
+//     testButton.style.color = "green"; // Success par green
+//     userBalance += uAmount;
+//     balance.textContent = `${"₹"}` + userBalance.toLocaleString("en-IN");
+//   } else {
+//     testButton.style.color = "red"; // Fail par red
+//   }
+// });
+
+submitButton = document
+  .querySelector("#subtn")
+  .addEventListener("click", (event) => {
+    event.preventDefault();
+    issubmit = true;
+  });
