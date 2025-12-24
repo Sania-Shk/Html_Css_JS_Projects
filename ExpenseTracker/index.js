@@ -7,11 +7,20 @@ let data_object = {
 
 const nameInput = document.querySelector("#name");
 const amountInput = document.querySelector("#amount");
-let uAmount;
-let balance = document.querySelector("#money");
-let userBalance = 0;
+let uName = "";
+let balance = document.querySelector("#money"); // for display
+let uAmount; // for conversion
+let userBalance = 0; // calc
+let expenseAmount = document.querySelector("#loss_display"); // for exp_display
+let incomeAmount = document.querySelector("#profit_display"); // for inc_display
+let totalIncome = 0;
+let totalExpense = 0;
 let options = document.querySelector("#sources");
 let submitButton = document.querySelector("#subtn");
+let tableBody = document.querySelector("#tableBody");
+let tableRow = document.querySelector("#tableRow");
+let count = 1; // for
+let historyData = [];
 
 function getData() {
   data_object.userName = nameInput.value;
@@ -33,7 +42,7 @@ amountInput.addEventListener("input", () => {
 // ----------------------INPUT VALIDATION----------------------
 
 function nameValidation() {
-  let uName = nameInput.value.trim();
+  uName = nameInput.value.trim();
   if (!uName) return errorAlert("Name cannot be empty");
   if (uName.length < 3) return errorAlert("Name must be at least 3 characters");
   if (/\d/.test(uName)) return errorAlert("Name cannot contains Number's");
@@ -91,26 +100,25 @@ options.addEventListener("change", () => {
 
 submitButton.addEventListener("click", function submission(event) {
   event.preventDefault();
+  if (inputValidation()) {
+    amountType();
+    history();
 
-  if (inputValidation) {
-    getData();
-
-    if (options.value === "expense") {
+    if (options.value.toLowerCase() === "expense") {
+      totalExpense += uAmount;
       userBalance -= uAmount;
-      console.log(userBalance);
-      console.log(typeof userBalance);
-    }
-
-    if (options.value === "income") {
+    } else {
+      totalIncome += uAmount;
       userBalance += uAmount;
-      console.log(userBalance);
-      console.log(typeof userBalance);
     }
-  }
 
-  balance.textContent = `${"₹"}` + userBalance.toLocaleString("en-IN");
-  console.log(balance);
-  console.log(typeof balance);
+    balance.textContent = `₹${userBalance.toLocaleString("en-IN")}`;
+    incomeAmount.textContent = `₹${totalIncome}`;
+    expenseAmount.textContent = `₹${totalExpense}`;
+    return true;
+  } else {
+    return false;
+  }
 });
 
 function scanner() {
@@ -121,10 +129,51 @@ function scanner() {
   if (isNameFilled && isAmountFilled && isOptionSelected) {
     submitButton.disabled = false;
     submitButton.style.opacity = "1";
-    submitButton.style.cursor = "pointer";
+    submitButton.style.cursor = "pointer ";
   } else {
     submitButton.disabled = true;
     submitButton.style.opacity = "0.5";
     submitButton.style.cursor = "not-allowed";
   }
+}
+
+// ----------------------HISTORY----------------------
+
+function history() {
+  //  ****** declaration  ******:
+  tableRow = document.createElement("tr");
+  let entryType = options.value;
+  let rowAmount = uAmount;
+  historyData = [uName, uAmount, options.value];
+
+  historyData.forEach((element) => {
+    let tableData = document.createElement("td");
+    tableData.append(element);
+    tableRow.append(tableData);
+  });
+
+  // / ****** delete row ******
+  let delRow = document.createElement("td");
+  let delButton = document.createElement("button");
+  delButton.innerText = "🗑️";
+
+  // --- del workspace
+  delButton.addEventListener("click", (event) => {
+    if (entryType === "income") {
+      totalIncome -= rowAmount;
+      userBalance -= rowAmount;
+    } else {
+      totalExpense -= rowAmount;
+      userBalance += rowAmount;
+    }
+    balance.textContent = `₹${rowAmount.toLocaleString("en-IN")}`;
+    incomeAmount.textContent = `₹${totalIncome}`;
+    expenseAmount.textContent = `₹${totalExpense}`;
+
+    event.target.closest("tr").remove(); // row del
+  });
+
+  delRow.append(delButton);
+  tableRow.append(delRow);
+  tableBody.append(tableRow);
 }

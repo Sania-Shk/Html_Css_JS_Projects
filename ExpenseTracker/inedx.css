@@ -64,6 +64,19 @@ body {
     width: 65%;
 }
 
+table,
+thead,
+td {
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
 .footer {
     border: 2px solid;
     width: 45%;
