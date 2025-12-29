@@ -1,3 +1,35 @@
+let itemBucket = [];
+
+function pageLoad() {
+  let storedData = localStorage.getItem("Data");
+  if (storedData) {
+    itemBucket = JSON.parse(storedData);
+
+    // Ab har entry ko screen par dikhayenge
+    itemBucket.forEach((entry) => {
+      // Refresh ke baad variables ko purana data dena taaki history() chal sake
+      uName = entry[0];
+      uAmount = entry[1];
+      options.value = entry[2];
+
+      // Purane calculation ko wapas zinda karna
+      if (options.value.toLowerCase() === "income") {
+        totalIncome += uAmount;
+        userBalance += uAmount;
+      } else {
+        totalExpense += uAmount;
+        userBalance -= uAmount;
+      }
+
+      history(); // Table row banana
+    });
+
+    balance.textContent = `₹${userBalance.toLocaleString("en-IN")}`;
+    incomeAmount.textContent = `₹${totalIncome}`;
+    expenseAmount.textContent = `₹${totalExpense}`;
+  }
+}
+
 // ----------------------DECLARATION----------------------
 let data_object = {
   userName: " ",
@@ -19,7 +51,6 @@ let options = document.querySelector("#sources");
 let submitButton = document.querySelector("#subtn");
 let tableBody = document.querySelector("#tableBody");
 let tableRow = document.querySelector("#tableRow");
-let count = 1; // for
 let historyData = [];
 
 function getData() {
@@ -83,10 +114,10 @@ function errorAlert(e) {
 
 function amountType() {
   if (options.value.toLowerCase() === "expense") {
-    submitButton.style.color = "green";
+    submitButton.style.color = "#ff95a8";
     submitButton.textContent = "Add Expense";
   } else {
-    submitButton.style.color = "blue";
+    submitButton.style.color = "#a8e1a8";
     submitButton.textContent = "Add Income";
   }
 }
@@ -96,6 +127,67 @@ options.addEventListener("change", () => {
   scanner();
 });
 
+// ----------------------HISTORY----------------------
+
+function history() {
+  tableRow = document.createElement("tr");
+  let entryType = options.value;
+  let rowAmount = uAmount;
+
+  let emoji = " ";
+  if (entryType.toLowerCase() === "expense") {
+    emoji = "📉";
+  } else {
+    emoji = "📈";
+  }
+  historyData = [uName, uAmount, emoji];
+
+  historyData.forEach((element) => {
+    let tableData = document.createElement("td");
+    tableData.append(element);
+    tableRow.append(tableData);
+  });
+
+  //  ****** delete row ******
+  let delRow = document.createElement("td");
+  let delButton = document.createElement("button");
+  delButton.innerText = "🗑️";
+
+  // --- del workspace
+  delButton.addEventListener("click", (event) => {
+    if (entryType === "income") {
+      totalIncome -= rowAmount;
+      userBalance -= rowAmount;
+    } else {
+      totalExpense -= rowAmount;
+      userBalance += rowAmount;
+    }
+    balance.textContent = `₹${rowAmount.toLocaleString("en-IN")}`;
+    incomeAmount.textContent = `₹${totalIncome}`;
+    expenseAmount.textContent = `₹${totalExpense}`;
+
+    let rowNode = event.target.closest("tr");
+    let rowIndex = Array.from(tableBody.children);
+    let index = rowIndex.indexOf(rowNode);
+    if (index !== -1) {
+      itemBucket.splice(rowIndex, 1);
+      localStorage.setItem("Data", JSON.stringify(itemBucket));
+    }
+
+    rowNode.remove();
+  });
+
+  delRow.append(delButton);
+  tableRow.append(delRow);
+  tableBody.append(tableRow);
+}
+
+// ----------------------LOCALSTORAGE----------------------
+function storingData() {
+  itemBucket.push(historyData);
+  localStorage.setItem("Data", JSON.stringify(itemBucket));
+}
+
 // ----------------------SUBMISSION----------------------
 
 submitButton.addEventListener("click", function submission(event) {
@@ -103,6 +195,7 @@ submitButton.addEventListener("click", function submission(event) {
   if (inputValidation()) {
     amountType();
     history();
+    storingData();
 
     if (options.value.toLowerCase() === "expense") {
       totalExpense += uAmount;
@@ -137,43 +230,4 @@ function scanner() {
   }
 }
 
-// ----------------------HISTORY----------------------
-
-function history() {
-  //  ****** declaration  ******:
-  tableRow = document.createElement("tr");
-  let entryType = options.value;
-  let rowAmount = uAmount;
-  historyData = [uName, uAmount, options.value];
-
-  historyData.forEach((element) => {
-    let tableData = document.createElement("td");
-    tableData.append(element);
-    tableRow.append(tableData);
-  });
-
-  // / ****** delete row ******
-  let delRow = document.createElement("td");
-  let delButton = document.createElement("button");
-  delButton.innerText = "🗑️";
-
-  // --- del workspace
-  delButton.addEventListener("click", (event) => {
-    if (entryType === "income") {
-      totalIncome -= rowAmount;
-      userBalance -= rowAmount;
-    } else {
-      totalExpense -= rowAmount;
-      userBalance += rowAmount;
-    }
-    balance.textContent = `₹${rowAmount.toLocaleString("en-IN")}`;
-    incomeAmount.textContent = `₹${totalIncome}`;
-    expenseAmount.textContent = `₹${totalExpense}`;
-
-    event.target.closest("tr").remove(); // row del
-  });
-
-  delRow.append(delButton);
-  tableRow.append(delRow);
-  tableBody.append(tableRow);
-}
+pageLoad();

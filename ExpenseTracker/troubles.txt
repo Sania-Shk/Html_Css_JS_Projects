@@ -1,0 +1,15 @@
+Project Challenges
+
+Delete Button Logic: It was messy to make the button actually work beyond just appearing on the screen.
+
+Updating Totals: Getting the Income and Loss displays to update correctly when a row was added or removed was a struggle.
+
+Storage Overwriting: The localStorage kept replacing old data with the new entry instead of keeping a full list.
+
+Permanent Deletion: Removing a row from the table wouldn't remove it from the localStorage memory.
+
+The Scanner Function: It was difficult to get the scanner() to recognize both Income and Expense types for the submit button to work.
+
+Wiring Options: Connecting the dropdown selection with the submit button logic caused a lot of headaches.
+
+The pageLoad Puzzle: This was the biggest challenge—getting the app to successfully retrieve and show all previous data after a refresh.
