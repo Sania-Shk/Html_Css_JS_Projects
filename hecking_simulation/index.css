@@ -1,0 +1,195 @@
+ * {
+     padding: 0px;
+     margin: 0px;
+ }
+
+
+ body {
+     background-color: black;
+     margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: 100vw;
+     overflow: hidden;
+
+ }
+
+ .container {
+     background-image: url(assets/bg.jpg);
+     height: 100vh;
+     width: 100%;
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-attachment: fixed;
+     background-size: cover;
+     display: flex;
+     flex-direction: column;
+     filter: blur(0.2);
+ }
+
+ .header {
+     padding: 10px;
+ }
+
+ #left {
+
+     color: white;
+     display: flex;
+     flex-direction: column;
+     width: 19rem;
+     float: left;
+     height: fit-content;
+     font-size: 20px;
+     line-height: 0.90;
+     padding: 5px;
+ }
+
+
+ #right {
+     width: 15rem;
+     height: 15rem;
+     color: aliceblue;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     background-image: url(assets/logo.png);
+     background-size: cover;
+     filter: contrast(0.5);
+     z-index: 1;
+ }
+
+ .main {
+
+     height: 45%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     color: white;
+     gap: 10px;
+     position: relative;
+     z-index: 2;
+ }
+
+ .main h2 {
+     font-size: 45px;
+     color: green;
+ }
+
+ .inputBox {
+     border: 2px solid green;
+     padding: 10px;
+     border-radius: 5px;
+     background-color: black;
+     box-shadow: 0px 0px 15px green;
+ }
+
+ .inputBox p {
+     text-align: center;
+ }
+
+ #input {
+     border: 2px solid green;
+     font-size: 15px;
+     padding: 10px;
+     background-color: black;
+     box-shadow: 0px 0px 15px green;
+     border-radius: 5px;
+     color: grey;
+     width: 15%;
+ }
+
+ .downloadingData {
+     color: white;
+     background-color: green;
+     width: 35rem;
+     height: fit-content;
+     position: absolute;
+     align-self: flex-end;
+     top: 10%;
+     right: 71px;
+     border-radius: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     border: 2px solid black;
+ }
+
+ .downladingProcess {
+     background-color: black;
+     width: 97%;
+     margin-top: 15px;
+     text-align: center;
+     line-height: 33.55px;
+
+ }
+
+ .downloadingData h3 {
+
+     font-size: 30px;
+ }
+
+ .downloadingData p {
+
+     font-size: 18px;
+ }
+
+ .downloading {
+     box-shadow: 0px 0px 8px grey;
+ }
+
+ .terminal {
+     border: 2px solid black;
+     width: 40rem;
+     height: fit-content;
+     position: absolute;
+     top: 30%;
+     left: 10px;
+     background-color: green;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+ }
+
+ .terminalPr,
+ .tracingTr {
+     background-color: rgb(0, 0, 0);
+     width: 98%;
+     margin-top: 15px;
+     text-align: center;
+ }
+
+ .terminalPr h3 {
+     font-size: 20px;
+     color: green;
+     padding: 5px;
+ }
+
+ .terminalgif,
+ .tracinggif {
+     width: 100%;
+     height: 90%;
+ }
+
+ .messages {
+     border: 2px solid white;
+     align-self: center;
+     width: fit-content;
+     position: absolute;
+     top: 5rem;
+     color: white;
+ }
+
+ .tracing {
+     border: 2px solid rgb(0, 0, 0);
+     background-color: rgb(16, 49, 16);
+     align-self: flex-end;
+     width: 30rem;
+     position: relative;
+     bottom: 20%;
+     right: 25px;
+     height: fit-content;
+ }
