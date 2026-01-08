@@ -29,6 +29,9 @@
 
  .header {
      padding: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
  }
 
  #left {
@@ -44,8 +47,52 @@
      padding: 5px;
  }
 
+ .messages {
+     color: white;
+ }
 
- #right {
+ .downloadingData {
+     color: white;
+     background-color: green;
+     width: 35rem;
+     height: fit-content;
+     position: relative;
+     align-self: flex-end;
+     top: 1%;
+     right: 57px;
+     border-radius: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     border: 2px solid black;
+     /* visibility: hidden; */
+ }
+
+ .downladingProcess {
+     background-color: black;
+     width: 97%;
+     margin-top: 15px;
+     text-align: center;
+     line-height: 33.55px;
+
+ }
+
+ .downloadingData h3 {
+
+     font-size: 30px;
+ }
+
+ .downloadingData p {
+
+     font-size: 18px;
+ }
+
+ .downloading {
+     box-shadow: 0px 0px 8px grey;
+ }
+
+ #logo {
      width: 15rem;
      height: 15rem;
      color: aliceblue;
@@ -60,8 +107,6 @@
  }
 
  .main {
-
-     height: 45%;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -70,7 +115,9 @@
      gap: 10px;
      position: relative;
      z-index: 2;
+     height: 70%;
  }
+
 
  .main h2 {
      font-size: 45px;
@@ -100,67 +147,32 @@
      width: 15%;
  }
 
- .downloadingData {
-     color: white;
-     background-color: green;
-     width: 35rem;
-     height: fit-content;
-     position: absolute;
-     align-self: flex-end;
-     top: 10%;
-     right: 71px;
-     border-radius: 5px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: column;
-     border: 2px solid black;
- }
-
- .downladingProcess {
-     background-color: black;
-     width: 97%;
-     margin-top: 15px;
-     text-align: center;
-     line-height: 33.55px;
-
- }
-
- .downloadingData h3 {
-
-     font-size: 30px;
- }
-
- .downloadingData p {
-
-     font-size: 18px;
- }
-
- .downloading {
-     box-shadow: 0px 0px 8px grey;
- }
 
  .terminal {
      border: 2px solid black;
      width: 40rem;
      height: fit-content;
-     position: absolute;
-     top: 30%;
-     left: 10px;
      background-color: green;
+     position: absolute;
+     align-self: flex-start;
      display: flex;
      align-items: center;
-     justify-content: center;
      flex-direction: column;
+     position: absolute;
+     top: 25px;
+     left: 15px;
+     /* visibility: hidden; */
  }
+
 
  .terminalPr,
  .tracingTr {
      background-color: rgb(0, 0, 0);
-     width: 98%;
-     margin-top: 15px;
+     width: 88%;
      text-align: center;
+
  }
+
 
  .terminalPr h3 {
      font-size: 20px;
@@ -169,27 +181,64 @@
  }
 
  .terminalgif,
- .tracinggif {
+ .tracinggif,
+ .monitorgif,
+ .audiogif {
      width: 100%;
      height: 90%;
+
  }
 
- .messages {
-     border: 2px solid white;
-     align-self: center;
-     width: fit-content;
-     position: absolute;
-     top: 5rem;
-     color: white;
+ .monitorgif,
+ .audiogif {
+     border: 2px solid black;
+     /* visibility: hidden; */
  }
+
 
  .tracing {
      border: 2px solid rgb(0, 0, 0);
      background-color: rgb(16, 49, 16);
-     align-self: flex-end;
      width: 30rem;
      position: relative;
-     bottom: 20%;
-     right: 25px;
      height: fit-content;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     /* visibility: hidden; */
+ }
+
+ .gifs {
+     align-self: flex-end;
+     position: absolute;
+     top: 25px;
+     right: 15px;
+     width: 35rem;
+     height: 590px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 20px;
+
+ }
+
+ .audio h3,
+ .monitor h3 {
+     font-size: 30px;
+     color: green;
+     text-align: center;
+
+ }
+
+ .monitor {
+
+     width: 100%;
+     height: 45%;
+
+ }
+
+ .audio {
+
+     width: 80%;
+     height: 45%;
  }
