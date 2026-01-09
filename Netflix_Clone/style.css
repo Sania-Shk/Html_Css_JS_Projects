@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    background-image: url("Assets/Images/bg.jpeg");
+    height: 80vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: max(1200px , 100vh);
+    position: relative;
+}
+
+.main .box {
+    width: 100%;
+    height: 80vh;
+    background-color: black;
+    opacity: 0.74;
+    position: absolute;
+    top: 0px;
+}
+
+.navbar {
+    max-width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto auto;
+    position: relative;
+    z-index: 2;
+    top: -16px;
+}
+
+.navbar img {
+    height: 80px;
+    width: 114px;
+}
+
+.btn {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.btn button {
+    padding: 2.5px 2.5px;
+    border-radius: 5px;
+}
+
+.btn_lang {
+    font-size: smaller;
+    background-color: black;
+    color: white;
+    width: 6.25rem;
+    border: 1px double rgb(255, 248, 248);
+}
+
+.btn_sign {
+    font-size: smaller;
+    background-color: red;
+    color: white;
+    width: 3.25rem;
+}
+
+.intro {
+    position: relative;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    max-width: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: auto;
+}
+
+.intro h1 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 50px;
+}
+
+.intro p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.intro h3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.btnn {
+    display: flex;
+    gap: 0.5rem;
+    font-family: "Poppins", sans-serif;
+    padding: 21px;
+
+}
+
+.btnn input {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(87, 82, 82);
+    color: rgb(199, 190, 190);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 3px;
+    height: 30px;
+    width: 39vh;
+}
+
+.btnn button {
+    color: white;
+    background-color: red;
+    border: 1px solid grey;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    width: 25vh;
+}
+
+.sep_line {
+    border: 3px solid rgb(77, 74, 74);
+}
+
+.box_1 {
+    color: rgb(255, 255, 255);
+    max-width: 1000vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto auto;
+    gap: 2.8rem;
+    position: relative;
+
+}
+
+.box_1 .text {
+    font-family: "Poppins", sans-serif;
+    max-width: 60vw;
+}
+
+.text :nth-child(1) {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.text :nth-child(2) {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: normal;
+    color: gainsboro;
+}
+
+.box_1 .image {
+    width: 35vh;
+    height: 30vh;
+    position: relative;
+}
+
+.image img {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image video {
+    border: 2px solid grey;
+    position: absolute;
+    width: 93.5%;
+    height: 62%;
+    top: 21px;
+    left: 6px;
+    object-fit: cover;
+}
+
+
+.box_2 {
+    color: rgb(255, 255, 255);
+    max-width: 1000vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto auto;
+    gap: 2.8rem;
+    position: relative;
+
+}
+
+.box_2 .text {
+    font-family: "Poppins", sans-serif;
+    max-width: 30vw;
+}
+
+.box_2 .text :nth-child(1) {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.box_2 .text :nth-child(2) {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: normal;
+    color: gainsboro;
+}
+
+.box_2 .image {
+    width: 35vh;
+    height: 30vh;
+    position: relative;
+}
+
+.box_2 .image img {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box_3 {
+    color: rgb(255, 255, 255);
+    max-width: 1000vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto auto;
+    gap: 2.8rem;
+    position: relative;
+
+}
+
+.box_3 .text {
+    font-family: "Poppins", sans-serif;
+    max-width: 30vw;
+}
+
+.box_3 .text :nth-child(1) {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.box_3 .text :nth-child(2) {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: normal;
+    color: gainsboro;
+}
+
+.box_3 .image {
+    width: 35vh;
+    height: 30vh;
+    position: relative;
+}
+
+.box_3 .image img {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box_4 {
+    color: rgb(255, 255, 255);
+    max-width: 1000vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto auto;
+    gap: 2.8rem;
+    position: relative;
+
+}
+
+.box_4 .text {
+    font-family: "Poppins", sans-serif;
+    max-width: 30vw;
+}
+
+.box_4 .text :nth-child(1) {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.box_4 .text :nth-child(2) {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: normal;
+    color: gainsboro;
+}
+
+.box_4 .image {
+    width: 35vh;
+    height: 30vh;
+    position: relative;
+}
+
+.box_4 .image img {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer {
+    max-width: 1000vh;
+    font-family: "Poppins";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.footer h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: normal;
+    color: gainsboro;
+    text-align: center;
+
+}
+
+.card {
+    position: relative;
+    top: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.fqa {
+    width: 40%;
+    color: gainsboro;
+    border: 2px solid black;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 400;
+    background-color: rgb(49, 48, 48);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    transition: background-color 800ms;
+}
+
+.membership {
+    color: gainsboro;
+    width: 70%;
+    margin: auto auto;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.membership p {
+    margin: auto auto;
+}
+
+.membership_btn {
+    display: flex;
+    gap: 0.3rem;
+    font-family: "Poppins", sans-serif;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.membership_btn input {
+    background-color: white;
+    border: 2px solid rgb(87, 82, 82);
+    color: rgb(199, 190, 190);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    border-radius: 3px;
+    width: 65vh;
+    height: 58px;
+    padding-left: 10px;
+}
+
+.membership_btn button {
+    color: white;
+    background-color: red;
+    border: 2px solid grey;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    width: 15vh;
+    height: 58px;
+}
+
+.footer_lite {
+    padding: 35px;
+}
+
+.footer_lite .footer_dict {
+    max-width: 1000vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px 20px;
+}
+
+.footer_lite span {
+    color: white;
+    font-size: 15px;
+    margin: 10px 20px;
+
+}
+
+.footer_lite .footer_text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer_text a {
+    text-decoration: none;
+    color: gray;
+    font-family: "Poppins";
+    font-size: 15px;
+    transition: all 1s ease-out;
+}
+
+/* --------------HOVER--------------*/
+
+.btn_sign:hover {
+    cursor: pointer;
+    background-color: maroon;
+}
+
+.btnn input:hover {
+    color: gainsboro;
+}
+
+.btnn button:hover,
+.membership_btn button:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom, #e52d27, #b31217);
+    font-weight: 600;
+}
+
+.fqa:hover {
+    background-color: #706f6c;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.footer_text a:hover {
+    color: rgb(59, 57, 57);
+}
+
+.membership_btn input:hover {
+    color: maroon;
+}
+
+/* --------------Responsiveness--------------*/
+@media screen and (max-width: 600px) {
+    .intro {
+        max-width: 100%;
+    }
+
+    .intro .btnn {}
+
+}
