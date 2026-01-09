@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Marksheet</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Student Marksheet</div>
+      <header class="header">
+        <div class="left">
+          <form action="blank" id="form">
+            <label for="Sname">Name </label>
+            <input type="text" id="Sname" placeholder="Student Name" /> <br />
+
+            <label for="Seatno">Seat no </label>
+            <input type="text" id="Seatno" placeholder="Seatno." /> <br />
+
+            <div id="subjects">
+              <label for="english">English </label>
+              <input type="text" id="english" placeholder="marks" />
+              <br />
+
+              <label for="math">Math </label>
+              <input type="text" id="math" placeholder="marks" /> <br />
+
+              <label for="science">Science </label>
+              <input type="text" id="science" placeholder="marks" />
+              <br />
+
+              <label for="chemistry">Chemistry </label>
+              <input type="text" id="chemistry" placeholder="marks" />
+              <br />
+
+              <label for="physics">Physics </label>
+              <input type="text" id="physics" placeholder="marks" />
+              <br />
+
+              <label for="socialSci">Social Science </label>
+              <input type="text" id="socialSci" placeholder="marks" />
+              <br />
+            </div>
+
+            <div class="buttons">
+              <button id="addbtn">Add me</button>
+              <button id="cleabtn">Clear</button>
+            </div>
+          </form>
+        </div>
+        <div class="right">
+          <div id="leftSide">Searching Side</div>
+          <div id="rightSide">Rankers</div>
+        </div>
+      </header>
+      <main class="main">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Seatno</th>
+              <th>Name</th>
+              <th>Total Marks</th>
+              <th>Ranker</th>
+              <th>Del</th>
+            </tr>
+          </thead>
+
+          <tbody id="tbody">
+            <tr>
+              <td>Seatno</td>
+              <td>Name</td>
+              <td>Total Marks</td>
+              <td>Ranker</td>
+              <td>Del</td>
+            </tr>
+            <tr>
+              <td>Seatno</td>
+              <td>Name</td>
+              <td>Total Marks</td>
+              <td>Ranker</td>
+              <td>Del</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

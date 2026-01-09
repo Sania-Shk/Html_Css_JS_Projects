@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    border: 2px solid black;
+    width: 80vw;
+    height: 80vh;
+    background-color: paleturquoise;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    font-size: 35px;
+    text-align: center;
+}
+
+/* ------------------ HEADER ------------------  */
+.header {
+    border: 2px solid orange;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------ LEFT SIDE ------------------  */
+.left {
+    border: 2px solid black;
+    background-color: peachpuff;
+    width: 50%;
+}
+
+#form {
+    border: 2px solid black;
+    padding: 5px 10px;
+    line-height: 1.8;
+    font-size: 20px;
+}
+
+input {
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 6.8px;
+}
+
+.buttons {
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+    width: 10%;
+    border-radius: 5px;
+}
+
+
+/* ------------------ RIGHT SIDE ------------------  */
+.right {
+    border: 2px solid black;
+    background-color: pink;
+    width: 50%;
+    display: flex;
+}
+
+#leftSide {
+    border: 2px solid red;
+    width: 100%;
+}
+
+#rightSide {
+    border: 2px solid purple;
+    width: 100%;
+}
+
+/* ------------------ MAIN ------------------  */
+.main {
+    border: 2px solid black;
+    background-color: rgb(192, 255, 208);
+}
+
+table {
+    width: 100%;
+}
+
+table,
+td,
+th {
+    border: 2px solid;
+    border-collapse: collapse;
+}
