@@ -10,13 +10,13 @@ let socialSci = document.querySelector("#socialSci");
 
 let studentObject = {
   name: "",
-  seatno: "",
-  english: "",
-  math: "",
-  science: "",
-  chemistry: "",
-  physics: "",
-  socialSci: "",
+  seatno: null,
+  english: null,
+  math: null,
+  science: null,
+  chemistry: null,
+  physics: null,
+  socialSci: null,
 };
 
 function userInput() {
@@ -28,49 +28,42 @@ function userInput() {
   studentObject.chemistry = chemistry.value;
   studentObject.physics = physics.value;
   studentObject.socialSci = socialSci.value;
-  0;
 }
 
-Sname.addEventListener("input", userInput());
-Seatno.addEventListener("input", userInput());
-english.addEventListener("input", userInput());
-math.addEventListener("input", userInput());
-science.addEventListener("input", userInput());
-chemistry.addEventListener("input", userInput());
-physics.addEventListener("input", userInput());
-socialSci.addEventListener("input", userInput());
+Sname.addEventListener("input", userInput);
+Seatno.addEventListener("input", userInput);
+english.addEventListener("input", userInput);
+math.addEventListener("input", userInput);
+science.addEventListener("input", userInput);
+chemistry.addEventListener("input", userInput);
+physics.addEventListener("input", userInput);
+socialSci.addEventListener("input", userInput);
 
-// ----testing
-let addbtn = document.querySelector("#addbtn");
-addbtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  userInput();
-  console.log(studentObject);
-});
+// ----------Validation----------
 
-// ---------- Input Validation ----------
-// ------ Student Name :
 function nameValidation() {
-  let Sname = Sname.value.trim();
-  if (!Sname) return errorAlert("Name cannot be empty");
-  if (Sname.length < 3) return errorAlert("Name must be at least 3 characters");
-  if (/\d/.test(Sname)) return errorAlert("Name cannot contain numbers");
+  let vName = Sname.value.trim();
+  if (!vName) return errorRaised("Name cannot be empty");
+  if (vName.length > 3)
+    return errorRaised("Name must be atleast more than a 3 characters");
+  if (/\d/.test(vName)) return errorRaised("Name cannot contain numbers");
 
   return true;
 }
 
-// ------ Student Name :
-function seatValidation(e) {
-  let demo = e.value.trim();
-  if (!demo) return errorAlert("number cannot be empty");
-  if (demo.length > 1) return errorAlert("number must be atleast 2 digits");
-  if (/[a-zA-Z]/.test(demo))
-    return errorAlert("Numbers must contain digits only");
+function numberValidation(value) {
+  let rawvalue = value.replace(/\D/g, "");
+  if (!rawvalue) return errorRaised("Number cannot be empty");
+  if (rawvalue.length > 3)
+    return errorRaised("Number must be atleast more than a 2 characters");
+  if (!/^\d+$/.test(vName))
+    return errorRaised("Number cannot contain Alphabets");
 
   return true;
 }
 
 // ---------- Error Alert ----------
-function errorAlert(e) {
+function errorRaised(e) {
   alert(`Error Raised! \n ${e}`);
 }
+
