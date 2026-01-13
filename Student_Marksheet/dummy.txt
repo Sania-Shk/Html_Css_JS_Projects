@@ -1,0 +1,44 @@
+
+// ----testing
+let addbtn = document.querySelector("#addbtn");
+addbtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  userInput();
+  console.log(studentObject);
+  console.log(typeof studentObject.seatno);
+});
+
+// ----------MINI VALIDATORS----------
+function validate_name() {
+  const vName = Sname.value.trim();
+  if (!vName) return errorRaised("Name cannot be empty");
+  if (vName.length > 3)
+    return errorRaised("Name must be atleast more than a 3 characters");
+  if (/\d/.test(vName)) return errorRaised("Name cannot contain numbers");
+
+  return true;
+}
+
+function validate_number(eValue) {
+  let rawValue = eValue.target.value.trim();
+  rawValue = Number(rawValue);
+  if (rawValue === NaN) return errorRaised("Number cannot be empty");
+  if (!/^\d+$/.test(rawValue)) return errorRaised("Number contains digit only");
+  if (rawValue > 2) return errorRaised("Number must be atleast 2 digit");
+
+  return false;
+}
+
+// ---------- Error Alert ----------
+function errorRaised(e) {
+  alert(`Error Raised! \n ${e}`);
+}
+
+function validation_all() {
+  if (!validate_name()) return false;
+  if (!validate_number()) return false;
+
+  return true;
+}
+
+validation_all();
