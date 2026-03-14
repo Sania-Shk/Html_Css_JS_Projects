@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,11 +19,11 @@
             <input
               type="text"
               id="Seatno"
-              maxlength="2"
-              minlength="1"
-              inputmode="numeric"
+              maxlength="4"
+              minlength="4"
               placeholder="Seatno."
             />
+
             <br />
 
             <div id="subjects">
@@ -92,17 +92,101 @@
                 placeholder="marks"
               />
               <br />
+
+              <!-- <label for="userImage">Profile </label>
+              <input
+                type="file"
+                id="userImage"
+                src="Images/submitImg.jpeg"
+                accept="image/*"
+                required
+              /> -->
+
+              <div id="profilBtn">
+                <label for="fileUpload" id="labelimg" onclick="ablebtn()">
+                  upload profile <img src="Images/submitImg.jpeg" alt="" />
+                </label>
+
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="fileUpload"
+                  style="display: none"
+                  disabled
+                />
+              </div>
             </div>
 
             <div class="buttons">
               <button id="addbtn">Add me</button>
-              <button id="cleabtn">Clear</button>
+              <button id="clearbtn">Clear</button>
             </div>
           </form>
         </div>
         <div class="right">
-          <div id="leftSide">Searching Side</div>
-          <div id="rightSide">Rankers</div>
+          <div id="leftSide">
+            <div class="topside">
+              <input type="search" placeholder="search name" id="searchInput" />
+              <button id="searchBtn">^</button>
+            </div>
+            <div class="downside">
+              <div class="section1">
+                <img src="Images/defaultp2.jpeg" class="profilePicture" />
+                <!-- for profile  -->
+              </div>
+              <div class="section2">
+                Name : <label for="name" id="searchName">abc </label> <br />
+                Seatno :<label for="seatno" id="searchSeatno">xoxo</label>
+                <br />
+                Percentage :
+                <label for="percentage" id="searchPer">0.00 </label>
+                <br />
+                Grade : <label for="grade" id="searchGrade">Na-</label>
+                <br />
+              </div>
+            </div>
+          </div>
+          <div id="rightSide">
+            <div id="introPanel">
+              <h2>Our Top Ranker</h2>
+              <h2>continuing the legacy of academic excellence!</h2>
+            </div>
+
+            <div id="rankerPanel">
+              <div class="ranker">
+                <div class="border franker">
+                  <img src="Images/defaultp1.jpeg" class="img-rank" />
+                </div>
+                <div id="text">
+                  <span><h2>First Ranker</h2></span>
+                  <span><h4 class="rank-name">name</h4></span>
+                  <span><p class="rank-seat">seat</p></span>
+                </div>
+              </div>
+
+              <div class="ranker">
+                <div class="border sranker">
+                  <img src="Images/defaultp1.jpeg" class="img-rank" />
+                </div>
+                <div id="text">
+                  <span><h2>Second Ranker</h2></span>
+                  <span><h4 class="rank-name">name</h4></span>
+                  <span><p class="rank-seat">seat</p></span>
+                </div>
+              </div>
+
+              <div class="ranker">
+                <div class="border thranker">
+                  <img src="Images/defaultp1.jpeg" class="img-rank" />
+                </div>
+                <div id="text">
+                  <span><h2>Third Ranker</h2></span>
+                  <span><h4 class="rank-name">name</h4></span>
+                  <span><p class="rank-seat">seat</p></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
       <main class="main">
@@ -112,30 +196,19 @@
               <th>Seatno</th>
               <th>Name</th>
               <th>Total Marks</th>
-              <th>Ranker</th>
+              <th>Percentage</th>
+              <th>Grade</th>
               <th>Del</th>
             </tr>
           </thead>
 
           <tbody id="tbody">
-            <tr>
-              <td>Seatno</td>
-              <td>Name</td>
-              <td>Total Marks</td>
-              <td>Ranker</td>
-              <td>Del</td>
-            </tr>
-            <tr>
-              <td>Seatno</td>
-              <td>Name</td>
-              <td>Total Marks</td>
-              <td>Ranker</td>
-              <td>Del</td>
-            </tr>
+            <tr id="trow"></tr>
           </tbody>
         </table>
       </main>
     </div>
+
     <script src="index.js"></script>
   </body>
 </html>
