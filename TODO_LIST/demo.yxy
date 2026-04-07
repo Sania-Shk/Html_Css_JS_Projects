@@ -1,0 +1,19 @@
+function main_Handler(e) {
+  e.preventDefault();
+  let usertask = addTask.value.trim();
+
+  saveTask(value);
+  renderTask(value);
+}
+
+addTaskBtn.addEventListener("click", main_Handler);
+
+function saveTask(value) {
+  taskArray.push(value);
+}
+
+function renderTask(value) {
+  let li = document.createElement("li");
+  li.textContent = value;
+  document.querySelector("#ul_TaskList").append(li);
+}

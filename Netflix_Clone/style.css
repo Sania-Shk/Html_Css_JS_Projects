@@ -14,7 +14,7 @@ body {
     height: 80vh;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: max(1200px, 100vh);
+    background-size: max(1200px , 100vh);
     position: relative;
 }
 
