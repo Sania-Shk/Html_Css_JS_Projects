@@ -5,6 +5,7 @@ let addTaskBtn = document.querySelector("#addTaskBtn");
 
 function getTask() {
   let usertask = addTask.value.trim();
+  // event.target.reset();
   return usertask;
 }
 
@@ -17,19 +18,28 @@ function arrayTask() {
 
 // ----------- ADD TASK INTO LIST ----------- :
 
-let temp_li = [];
-function taskList() {
-  temp_li = arrayTask();
+function taskList(value) {
   let li = document.createElement("li");
-  li.textContent = temp_li;
+
+  // if (typeof value === Object) {
+  //   li.textContent = value.Task;
+  // } else {
+  //   li.textContent = value;
+  // }
+  li.textContent = value.Task;
+
   let ulList = document.querySelector("#ul_TaskList").appendChild(li);
 
   // ----------- DEL TASK----------- :
   let delButton = document.createElement("button");
   delButton.innerText = "🗑️";
-  delButton.addEventListener("click", (event) => {
-    let delTask = event.target.closest("li");
-    delTask.remove();
+  delButton.addEventListener("click", () => {
+    let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+    let updatedTask = retrieve.filter((del) => {
+      return del.Task !== value.Task;
+    });
+    localStorage.setItem("Data", JSON.stringify(updatedTask));
+    displayHistory();
   });
 
   ulList.appendChild(delButton);
@@ -40,6 +50,24 @@ addTaskBtn.addEventListener("click", (event) => {
   event.preventDefault();
   getTask();
   arrayTask();
-  taskList();
-  addTask.value = " ";
+
+  // taskList(); we are calling in the display function, no need to call here
+
+  // ----------- LOCAL STORAGE ----------- :
+
+  let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+  retrieve.push({ Task: addTask.value });
+  localStorage.setItem("Data", JSON.stringify(retrieve));
+  displayHistory();
+  return (addTask.value = "");
 });
+
+function displayHistory() {
+  let ulList = document.querySelector("#ul_TaskList");
+  ulList.innerHTML = ""; // th erase the old task
+  let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+  retrieve.forEach((element) => {
+    taskList(element);
+  });
+}
+displayHistory();
