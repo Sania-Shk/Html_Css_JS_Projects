@@ -20,6 +20,20 @@ body {
 
 .leftSec {
     background-color: pink;
+    border: 2px solid;
+
+}
+
+.leftTop {
+    background-color: rgb(243, 241, 224);
+
+}
+
+
+
+.leftBottom {
+    border: 2px solid;
+    background-color: palevioletred;
 }
 
 .rightSec {
@@ -49,4 +63,5 @@ body {
     border-radius: 5px;
     text-align: center;
     padding: 5px;
+  
 }

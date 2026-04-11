@@ -27,6 +27,17 @@ function taskList(value) {
   //   li.textContent = value;
   // }
   li.textContent = value.Task;
+  if (value.iscomplete === true) {
+    li.style.textDecoration = "line-through";
+  } else {
+    li.style.textDecoration = "none";
+  }
+
+  if (value.isPriority === true) {
+    li.style.color = "yellow";
+  } else {
+    li.style.color = "black";
+  }
 
   let ulList = document.querySelector("#ul_TaskList").appendChild(li);
 
@@ -42,7 +53,43 @@ function taskList(value) {
     displayHistory();
   });
 
+  // ----------- Completed TASK----------- :
+  let CompletedButton = document.createElement("button");
+  CompletedButton.textContent = "✔️";
+  CompletedButton.addEventListener("click", () => {
+    let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+    let Completed = retrieve.find((item) => {
+      return item.Task === value.Task;
+    });
+
+    if (Completed) {
+      Completed.iscomplete = !Completed.iscomplete;
+    }
+
+    localStorage.setItem("Data", JSON.stringify(retrieve));
+    displayHistory();
+  });
+
+  // ----------- Priority  TASK----------- :
+  let PriorityButton = document.createElement("button");
+  PriorityButton.textContent = "⭐";
+  PriorityButton.addEventListener("click", () => {
+    let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+    let prioritise = retrieve.find((item_Value) => {
+      return item_Value.Task === value.Task;
+    });
+
+    if (prioritise) {
+      prioritise.isPriority = !prioritise.isPriority;
+    }
+
+    localStorage.setItem("Data", JSON.stringify(retrieve));
+    displayHistory();
+  });
+
   ulList.appendChild(delButton);
+  ulList.appendChild(CompletedButton);
+  ulList.appendChild(PriorityButton);
 }
 
 // ----------- MAIN FUNCTION ----------- :
@@ -51,7 +98,7 @@ addTaskBtn.addEventListener("click", (event) => {
   getTask();
   arrayTask();
 
-  // taskList(); we are calling in the display function, no need to call here
+  // taskList(); we are calling inside the display function, no need to call here!
 
   // ----------- LOCAL STORAGE ----------- :
 
@@ -64,8 +111,9 @@ addTaskBtn.addEventListener("click", (event) => {
 
 function displayHistory() {
   let ulList = document.querySelector("#ul_TaskList");
-  ulList.innerHTML = ""; // th erase the old task
+  ulList.innerHTML = ""; // this will erase the old task
   let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+  console.log(retrieve);
   retrieve.forEach((element) => {
     taskList(element);
   });
