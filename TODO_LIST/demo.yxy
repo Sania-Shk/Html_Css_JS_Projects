@@ -1,29 +1,13 @@
-  let CompletedButton = document.createElement("button");
-  CompletedButton.textContent = "✔️";
-  CompletedButton.Task = false;
-  CompletedButton.addEventListener("click", () => {
-    if (li.style.textDecoration === "line-through") {
-      li.style.textDecoration = "none";
-      CompletedButton.Task = false;
-    } else {
-      li.style.textDecoration = "line-through";
-      CompletedButton.Task = true;
-    }
-    let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
-    let clearTask = retrieve.filter((Completed) => {
-      return Completed.Task === true;
-    });
-
-    localStorage.setItem("Data", JSON.stringify(clearTask));
-    displayHistory();
-  });
+// ****************************** RIGHT PANEL ******************************
 
 // ----------- FETCH USER TASK ----------- :
+
 let addTask = document.querySelector("#addTask");
 let addTaskBtn = document.querySelector("#addTaskBtn");
 
 function getTask() {
   let usertask = addTask.value.trim();
+  // event.target.reset();
   return usertask;
 }
 
@@ -36,7 +20,7 @@ function arrayTask() {
 
 // ----------- ADD TASK INTO LIST ----------- :
 
-function taskList(value) {
+function taskList(value, container) {
   let li = document.createElement("li");
 
   // if (typeof value === Object) {
@@ -45,12 +29,21 @@ function taskList(value) {
   //   li.textContent = value;
   // }
   li.textContent = value.Task;
-
-  if (value.isCompleted === true) {
+  if (value.iscomplete === true) {
     li.style.textDecoration = "line-through";
+  } else {
+    li.style.textDecoration = "none";
+  }
+
+  if (value.isPriority === true) {
+    li.style.color = "yellow";
+  } else {
+    li.style.color = "black";
   }
 
   let ulList = document.querySelector("#ul_TaskList").appendChild(li);
+  container.appendChild(li);
+  // container.appendChild(li);
 
   // ----------- DEL TASK----------- :
   let delButton = document.createElement("button");
@@ -67,30 +60,35 @@ function taskList(value) {
   // ----------- Completed TASK----------- :
   let CompletedButton = document.createElement("button");
   CompletedButton.textContent = "✔️";
-
   CompletedButton.addEventListener("click", () => {
     let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
-    let CompletedTask = retrieve.find((item) => {
+    let Completed = retrieve.find((item) => {
       return item.Task === value.Task;
     });
 
-    if (CompletedTask) {
-      CompletedTask.isCompleted = true;
+    if (Completed) {
+      Completed.iscomplete = !Completed.iscomplete;
     }
 
     localStorage.setItem("Data", JSON.stringify(retrieve));
     displayHistory();
   });
 
-  // ----------- Priority TASK----------- :
+  // ----------- Priority  TASK----------- :
   let PriorityButton = document.createElement("button");
   PriorityButton.textContent = "⭐";
   PriorityButton.addEventListener("click", () => {
-    if (li.style.color === "green") {
-      li.style.color = "black";
-    } else {
-      li.style.color = "green";
+    let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+    let prioritise = retrieve.find((item_Value) => {
+      return item_Value.Task === value.Task;
+    });
+
+    if (prioritise) {
+      prioritise.isPriority = !prioritise.isPriority;
     }
+
+    localStorage.setItem("Data", JSON.stringify(retrieve));
+    displayHistory();
   });
 
   ulList.appendChild(delButton);
@@ -104,7 +102,7 @@ addTaskBtn.addEventListener("click", (event) => {
   getTask();
   arrayTask();
 
-  // taskList(); we are calling in the display function, no need to call here
+  // taskList(); we are calling inside the display function, no need to call here!
 
   // ----------- LOCAL STORAGE ----------- :
 
@@ -113,14 +111,53 @@ addTaskBtn.addEventListener("click", (event) => {
   localStorage.setItem("Data", JSON.stringify(retrieve));
   displayHistory();
   return (addTask.value = "");
+  isPriority = false;
+  iscomplete = false;
 });
 
 function displayHistory() {
   let ulList = document.querySelector("#ul_TaskList");
-  ulList.innerHTML = ""; // th erase the old task
+  ulList.innerHTML = ""; // this will erase the old task
   let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+  console.log(retrieve);
   retrieve.forEach((element) => {
     taskList(element);
   });
 }
 displayHistory();
+
+// ****************************** LEFT PANEL ******************************
+let allDisplayBtn = document.querySelector(".allDisplayBtn");
+let completedBtn = document.querySelector(".completedBtn");
+let priorityBtn = document.querySelector(".priorityBtn");
+let pendingBtn = document.querySelector(".pendingBtn");
+
+function showTask(type) {
+  console.log(type);
+  let container = document.querySelector("#displayList");
+  container.innerHTML = "";
+  console.log(container);
+
+  let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+  let filtered = [];
+
+  if (type === "allDisplay") {
+    filtered = retrieve;
+  } else if (type === "allDisplay") {
+    filtered = retrieve.filter((item) => {
+      item.iscomplete = true;
+    });
+  } else if (type === "priorityTask") {
+    filtered = retrieve.filter((item) => {
+      item.isPriority = true;
+    });
+  } else if (type === "pendingTask") {
+    filtered = retrieve.filter((item) => {
+      item.iscomplete = false;
+    });
+  }
+
+  retrieve.forEach((element) => {
+    taskList(element, container);
+  });
+}

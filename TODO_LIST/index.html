@@ -11,9 +11,25 @@
       <div class="leftSec">
         <div class="leftTop">
           <h2>Todo List</h2>
-          <div class="category">category</div>
+          <div class="category">
+            category
+            <button class="completedBtn" onclick="showTask('completedTask')">
+              Compeleted
+            </button>
+
+            <button class="priorityBtn" onclick="showTask('priorityTask')">
+              Priority
+            </button>
+
+            <button class="pendingBtn" onclick="showTask('pendingTask')">
+              Pending
+            </button>
+          </div>
         </div>
-        <div class="leftBottom">left bottom section</div>
+        <div class="leftBottom">
+          left bottom section
+          <ul id="displayList"></ul>
+        </div>
       </div>
 
       <div class="rightSec">
@@ -34,9 +50,7 @@
 
           <div class="displaytask">
             <div class="additem">
-              <ul id="ul_TaskList">
-                <li>takeout trash</li>
-              </ul>
+              <ul id="ul_TaskList"></ul>
             </div>
           </div>
         </div>

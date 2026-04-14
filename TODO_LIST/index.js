@@ -1,3 +1,5 @@
+// ****************************** RIGHT PANEL ******************************
+
 // ----------- FETCH USER TASK ----------- :
 
 let addTask = document.querySelector("#addTask");
@@ -18,7 +20,7 @@ function arrayTask() {
 
 // ----------- ADD TASK INTO LIST ----------- :
 
-function taskList(value) {
+function taskList(value, container) {
   let li = document.createElement("li");
 
   // if (typeof value === Object) {
@@ -38,8 +40,10 @@ function taskList(value) {
   } else {
     li.style.color = "black";
   }
-
   let ulList = document.querySelector("#ul_TaskList").appendChild(li);
+  if (container) {
+    container.appendChild(li);
+  }
 
   // ----------- DEL TASK----------- :
   let delButton = document.createElement("button");
@@ -87,9 +91,11 @@ function taskList(value) {
     displayHistory();
   });
 
-  ulList.appendChild(delButton);
-  ulList.appendChild(CompletedButton);
-  ulList.appendChild(PriorityButton);
+  if (!container) {
+    ulList.appendChild(delButton);
+    ulList.appendChild(CompletedButton);
+    ulList.appendChild(PriorityButton);
+  }
 }
 
 // ----------- MAIN FUNCTION ----------- :
@@ -103,9 +109,10 @@ addTaskBtn.addEventListener("click", (event) => {
   // ----------- LOCAL STORAGE ----------- :
 
   let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
-  retrieve.push({ Task: addTask.value });
+  retrieve.push({ Task: addTask.value, isPriority: false, iscomplete: false });
   localStorage.setItem("Data", JSON.stringify(retrieve));
   displayHistory();
+
   return (addTask.value = "");
 });
 
@@ -119,3 +126,32 @@ function displayHistory() {
   });
 }
 displayHistory();
+
+// ****************************** LEFT PANEL ******************************
+
+function showTask(type) {
+  let container = document.querySelector("#displayList");
+
+  container.innerHTML = ""; // this will erase the old task
+
+  let retrieve = JSON.parse(localStorage.getItem("Data")) ?? [];
+  filteredTask = [];
+
+  if (type === "completedTask") {
+    filteredTask = retrieve.filter((item) => {
+      return item.iscomplete === true;
+    });
+  } else if (type === "priorityTask") {
+    filteredTask = retrieve.filter((item) => {
+      return item.isPriority === true;
+    });
+  } else if (type === "pendingTask") {
+    filteredTask = retrieve.filter((item) => {
+      return item.iscomplete === false;
+    });
+  }
+
+  filteredTask.forEach((element) => {
+    taskList(element, container);
+  });
+}

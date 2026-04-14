@@ -29,11 +29,30 @@ body {
 
 }
 
+.category {
+    border: 2px solid;
+    font-size: 25px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.category button {
+    width: auto;
+}
 
 .leftBottom {
     border: 2px solid;
     background-color: palevioletred;
+    padding: 3px;
+}
+
+#displayList {
+    border: 2px solid black;
+    padding: 3px;
+    text-align: center;
+    font-size: 20px;
 }
 
 .rightSec {
@@ -63,5 +82,5 @@ body {
     border-radius: 5px;
     text-align: center;
     padding: 5px;
-  
+
 }
