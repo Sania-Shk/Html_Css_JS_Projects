@@ -2,85 +2,288 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: regular_clip;
+    src: url(Fonts/clip.regular.ttf);
+}
+
+@font-face {
+    font-family: semibold;
+    src: url(Fonts/josefin-sans.semibold-italic.ttf);
+}
+
+@font-face {
+    font-family: typewriter;
+    src: url(Fonts/modern-typewriter.regular.ttf);
+}
 
 body {
-    border: 2px solid;
+    /* border: 2px solid; */
     display: flex;
     justify-content: center;
+    height: fit-content;
+    background-color: black;
+    align-items: center;
 }
 
 
 .maincontainer {
-    border: 2px solid;
+    border: 1px solid rgb(78, 73, 61);
+    box-shadow: 0px 0px 5px rgb(78, 73, 61);
     width: 950px;
     display: grid;
     grid-template-columns: 250px 1fr;
-
+    height: fit-content;
+    position: relative;
+    top: 25%;
 }
 
+/* ---------------------LEFT PANEL ---------------------*/
 .leftSec {
-    background-color: pink;
-    border: 2px solid;
 
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 8.5px;
+    gap: 12.3px;
+    background-image: url(assets/leftpanel1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-.leftTop {
-    background-color: rgb(243, 241, 224);
-
+#topHeading {
+    border: 2px solid;
+    font-family: regular_clip;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 580;
+    padding: 3.5px;
+    margin-top: 4.5px;
+    color: white;
 }
 
 .category {
-    border: 2px solid;
+
     font-size: 25px;
-    gap: 8px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 23px;
+    padding-bottom: 5px;
 }
 
 .category button {
-    width: auto;
+
+    color: whitesmoke;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    padding: 8px;
+    font-family: typewriter;
+    font-weight: 550;
+    font-size: 15px;
+    background-color: rgba(182, 173, 173, 0.4);
+    box-shadow: 0px 0px 5px grey;
+    transition: font-size 0.3s;
+}
+
+.category button:hover {
+    background-color: rgba(78, 102, 151, 0.4);
+    box-shadow: 1px 1px 10px grey;
+    overflow-y: 1px;
+    font-size: 17.2px;
+    width: fit-content;
 }
 
 .leftBottom {
-    border: 2px solid;
-    background-color: palevioletred;
+    border: 2px solid whitesmoke;
     padding: 3px;
+    height: 15rem;
+}
+
+#bottomHeading {
+    border: 2px solid;
+    font-family: regular_clip;
+    padding: 3.5px;
+    font-weight: 580;
+    text-align: center;
+    color: whitesmoke;
+
 }
 
 #displayList {
-    border: 2px solid black;
     padding: 3px;
     text-align: center;
     font-size: 20px;
+
 }
 
-.rightSec {
-    background-color: powderblue;
+
+#displayList li {
+    padding: 5.5px;
+    list-style: none;
+    font-family: semibold;
+    font-weight: 550;
+    font-size: 20px;
+    border: none;
+
 }
 
+
+/* ---------------------RIGHT PANEL ---------------------*/
+/* .rightSec {
+    /* background-color: rgb(0, 0, 0) */
+
+
+.bgsection {
+    background-color: black;
+    border: 2px solid rgb(7, 7, 7);
+    position: relative;
+    height: 9.5rem;
+    background-image: url(assets/rightpanel1.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ----- TOP SECTION  -----*/
 .topsection {
-    border: 2px solid red;
+    /* background-image: url(assets/leftpanel1.jpeg);
+    background-color: rgb(0, 0, 0); */
+    border: 1px solid rgb(92, 86, 86);
+    height: 5rem;
+    line-height: 0.45;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 8.5px;
+    box-shadow: 1px 1px 3px rgb(92, 86, 86);
 }
 
+#date_time {
+    font-family: typewriter;
+    font-size: 22px;
+    font-weight: 500;
+    color: whitesmoke;
+}
+
+#greetingMsg {
+    font-family: typewriter;
+    font-size: 28px;
+    font-weight: 550;
+    color: whitesmoke;
+}
+
+
+/* ----- BOTTOM SECTION  -----*/
 .bottomsection {
-    border: 2px solid green;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid;
+    margin-top: 5px;
+    margin-left: 33px;
+    padding: 5px;
 }
 
-.addtask {
-    border: 2px solid blue;
+#heading {
+    font-family: typewriter;
+    font-size: 35px;
+    font-weight: 450;
+    position: relative;
+    bottom: 24px;
+    color: whitesmoke;
+}
+
+.getTask {
+    padding: 2px;
+    position: relative;
+    bottom: 44px;
+    background-color: rgba(0, 0, 0);
+}
+
+.inputTask {
+
+    width: 60%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#addTask {
+    border: 1px solid whitesmoke;
+    border-radius: 5.5px;
+    padding: 8px;
+    font-family: typewriter;
+    font-weight: 550;
+    font-size: 1.0rem;
+    background-color: rgba(54, 54, 54, 0.3);
+    color: whitesmoke;
+}
+
+#addTaskBtn {
+    border: 1px solid whitesmoke;
+    border-radius: 5.5px;
+    font-family: 'typewriter';
+    font-weight: 550;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    right: 66px;
+    position: relative;
+    padding: 8.5px;
+    width: 59px;
+    color: rgb(204, 197, 197);
+
+
+}
+
+#addTaskBtn:hover {
+    box-shadow: 0px 0px 15px rgb(139, 136, 136);
+    cursor: cell;
 }
 
 .displaytask {
-    border: 2px solid pink;
-    padding: 6.8px;
+    padding: 2.3px;
+}
+
+#ul_TaskList {
+    padding: 5.5px;
+    line-height: 0.45;
+    display: flex;
+    flex-direction: column;
+    gap: 6.5px;
+    position: relative;
+    bottom: 18px;
+}
+
+#ul_TaskList li {
+    border: 1px solid whitesmoke;
+    padding: 5.5px;
+    list-style: none;
+    font-family: typewriter;
+    font-weight: 550;
+    font-size: 20px;
+    border-radius: 3.5px;
+    box-shadow: 1px 1px 5px grey;
+    color: rgb(156, 151, 151);
+}
+
+#ul_TaskList li button {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 3.2px;
+    margin: 4.2px;
+    border-radius: 3.2px;
+    border: none;
+    box-shadow: 0px 0px 3px grey;
+    text-align: center;
 }
 
 .additem {
     font-size: 1.5rem;
-    border: 2px solid black;
     border-radius: 5px;
     text-align: center;
     padding: 5px;
-
+    border: 2px solid;
+    color: 0F828C;
 }
